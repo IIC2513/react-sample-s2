@@ -10,7 +10,7 @@ const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 export default function Board() {
     const boardRef = useRef(null);
-
+    // Variable que gestiona si es que hay un elemento seleccionado
     let activePiece = null;
 
 function grabPiece(e) {
@@ -38,6 +38,7 @@ function movePiece(e) {
         const y = e.clientY - 50;
         activePiece.style.position = "absolute";
 
+        // Límites superiores e inferiores eje X
         if (x < minX) {
             activePiece.style.left = `${minX}px`;
         } else if (x > maxX) {
@@ -45,7 +46,7 @@ function movePiece(e) {
         } else {
             activePiece.style.left = `${x}px`;
         }
-
+        // Límites superiores e inferiores eje Y
         if (y < minY) {
             activePiece.style.top = `${minY}px`;
         } else if (y > maxY) {
@@ -63,7 +64,7 @@ function dropPiece() {
 }
 
     let board = [];
-
+    // Inicializa el tablero
     for (let j = verticalAxis.length - 1; j >= 0; j--) {
         for (let i = 0; i < horizontalAxis.length; i++) {
             const number = i + j + 2;
