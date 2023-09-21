@@ -15,18 +15,15 @@ export default function Board() {
 
     function grabPiece(e) {
         const element = e.target;
-        console.log('e', e);
-        console.log('element', element);
+        // console.log('e', e);
+        // console.log('element', element);
         // console.log('board', board);
         // console.log(`Alto del tablero: ${board.clientHeight}; Ancho del tablero: ${board.clientWidth}`);
         // console.log(`Posición relativa en el tablero: (${(e.clientX - board.offsetLeft) / board.clientWidth * 100}%, ${(e.clientY - board.offsetTop) / board.clientWidth * 100}%)`)
         // console.log('Mouse:', e.clientX - boardRef.current.offsetLeft, e.clientY - boardRef.current.offsetTop, 'Pawn:', element.offsetLeft, element.offsetTop);
         if (element.classList.contains("pawn")) {
-            // const x = e.clientX - element.offsetLeft - (element.offsetWidth/2);
-            // const y = e.clientY - element.offsetTop - (element.offsetHeight/2);
             const x = e.clientX - element.parentElement.offsetLeft - element.parentElement.parentElement.offsetLeft - (element.offsetWidth/2);
             const y = e.clientY - element.parentElement.offsetTop  - element.parentElement.parentElement.offsetTop - (element.offsetHeight/2);
-            console.log(e.clientY, element.offsetHeight, y);
             element.style.position = "relative";
             element.style.left = `${x}px`;
             element.style.top = `${y}px`;
@@ -51,7 +48,6 @@ export default function Board() {
             activePiece.style.position = "relative";
             activePiece.style.left = `${x}px`;
             activePiece.style.top = `${y}px`;
-            console.log('Mouse:', e.clientX, e.clientY, 'Pawn:', activePiece.offsetLeft, activePiece.offsetTop, 'x', x, 'y', y);
             
 
             // Límites superiores e inferiores eje X
