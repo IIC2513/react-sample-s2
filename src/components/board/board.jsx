@@ -5,9 +5,6 @@ import "./board.css"
 const verticalAxis = ["1", "2", "3", "4", "5", "6", "7", "8"];
 const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-// const pieces = [];
-// const initialBoardState = [];
-
 export default function Board() {
     const boardRef = useRef(null);
     // Variable que gestiona si es que hay un elemento seleccionado
@@ -68,12 +65,8 @@ function dropPiece() {
     for (let j = verticalAxis.length - 1; j >= 0; j--) {
         for (let i = 0; i < horizontalAxis.length; i++) {
             const number = i + j + 2;
-            
-            // Pieces.forEach(p => {
-
-            // })
-
-            board.push(<Square key={`${i},${j}`} num={number} />)
+            // console.log(i, j)
+            board.push(<Square key={`${i},${j}`} num={number} i={horizontalAxis[i]} j={verticalAxis[j]}/>)
         }
     }
 
